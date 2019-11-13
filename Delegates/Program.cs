@@ -17,7 +17,7 @@ namespace Delegates
         static void Main(string[] args)
         {
             Strstruct sc = new Strstruct("string in struct");
-            GetAString gAs = PrintUpper;
+            Action<string> gAs = PrintUpper;
             gAs += PrintLower;
             gAs += sc.ConcatAndPrint;
 
