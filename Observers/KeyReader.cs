@@ -6,22 +6,22 @@ namespace Observers
 {
     class KeyReader : ISujeito
     {
-        private ICollection<IObservador> observers;
+        private ICollection<IObservador<ConsoleKey>> observers;
 
         public ConsoleKey LastKey { get; private set; }
 
         public KeyReader() 
         {
-            observers = new List<IObservador>();
+            observers = new List<IObservador<ConsoleKey>>();
         }
 
 
-        public void RegisterObserver(IObservador obs)
+        public void RegisterObserver(IObservador<ConsoleKey> obs)
         {
             observers.Add(obs);
         }
 
-        public void RemoveObserver(IObservador obs)
+        public void RemoveObserver(IObservador<ConsoleKey> obs)
         {
             observers.Remove(obs);
         }
@@ -36,9 +36,9 @@ namespace Observers
 
                 if (LastKey == ConsoleKey.Escape) break;
 
-                foreach (IObservador ob in observers) 
+                foreach (IObservador<ConsoleKey> ob in observers) 
                 {
-                    ob.Update(this);
+                    ob.Update(this.LastKey);
                 }
             }
         }

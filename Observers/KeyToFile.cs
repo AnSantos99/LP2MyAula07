@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Observers
 {
-    class KeyToFile : IObservador
+    class KeyToFile : IObservador<ConsoleKey>
     {
         private string fileName;
 
@@ -13,10 +13,9 @@ namespace Observers
         {
             this.fileName = fileName;
         }
-        public void Update(ISujeito sujeito)
+        public void Update(ConsoleKey key)
         {
-            File.AppendAllText(fileName, 
-                (sujeito as KeyReader).LastKey.ToString());
+            File.AppendAllText(fileName, key.ToString());
         }
     }
 }

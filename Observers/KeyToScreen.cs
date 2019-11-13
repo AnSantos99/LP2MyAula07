@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Observers
 {
-    class KeyToScreen : IObservador
+    class KeyToScreen : IObservador<ConsoleKey>
     {
-        public void Update(ISujeito sujeito)
+        public void Update(ConsoleKey key)
         {
-            Console.WriteLine((sujeito as KeyReader).LastKey);
+            Console.WriteLine(key.ToString());
         }
     }
 }

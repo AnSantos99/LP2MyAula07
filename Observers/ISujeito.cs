@@ -6,9 +6,9 @@ namespace Observers
 {
     interface ISujeito
     {
-        public void RegisterObserver(IObservador obs);
+        public void RegisterObserver(IObservador<ConsoleKey> key);
 
-        public void RemoveObserver(IObservador obs);
+        public void RemoveObserver(IObservador<ConsoleKey> key);
 
 
     }
